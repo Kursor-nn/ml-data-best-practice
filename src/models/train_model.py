@@ -39,7 +39,7 @@ def train(data_path: str, n_estimators: int, max_depth: int) -> None:
 
         # Предикт и метрики
         predictions = rf.predict(X_test)
-        rmse = root_mean_squared_error(y_test, predictions, squared=False)
+        rmse = root_mean_squared_error(y_test, predictions)
         mae = mean_absolute_error(y_test, predictions)
 
         print(f"RandomForest(n_estimators={n_estimators}, max_depth={max_depth}):")

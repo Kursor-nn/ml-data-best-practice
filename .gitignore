@@ -93,3 +93,5 @@ target/
 __pycache__/
 dist/
 *.egg-info/
+mlruns/
+/tmp/
