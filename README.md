@@ -4,12 +4,12 @@ just_project
 just project
 ## Intro
 
-### Установка uv (если еще нет)
+### Устанавливаем uv (если еще нет)
 ```bash 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### перезапускаем терминал
+### Перезапускаем терминал
 Для загрузки новых ENV переменных
 
 ### Устанавливаем cookiecutter через uv как инструмент
@@ -17,6 +17,16 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv tool install cookiecutter
 ```
 
+### Установленные модули
+- "jupyterlab>=4.5.0",
+- "matplotlib>=3.10.7",
+- "numpy>=2.3.5",
+- "pandas>=2.3.3",
+- "scikit-learn>=1.7.2",
+- "bandit>=1.9.1",
+- "mypy>=1.18.2",
+- "pre-commit>=4.4.0",
+- "ruff>=0.14.6",
 
 ## Project Organization
 ------------
