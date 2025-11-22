@@ -3,10 +3,13 @@
 - uv
 - docker
 
+
 # Инструкция по воспроизведению
 ## Установить зависимости
 ```bash
 uv sync
+uv run pre-commit autoupdate
+uv run pre-commit install
 ```
 
 ## Настроить DVC для локального использования
