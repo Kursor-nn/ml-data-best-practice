@@ -5,7 +5,7 @@ just project
 ## Intro
 
 ### Устанавливаем uv (если еще нет)
-```bash 
+```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
@@ -13,7 +13,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Для загрузки новых ENV переменных
 
 ### Устанавливаем cookiecutter через uv как инструмент
-```bash 
+```bash
 uv tool install cookiecutter
 ```
 
@@ -27,6 +27,12 @@ uv tool install cookiecutter
 - "mypy>=1.18.2",
 - "pre-commit>=4.4.0",
 - "ruff>=0.14.6",
+
+### Ручная проверка качества проекта
+```bash
+uv run pre-commit autoupdate
+uv run pre-commit run --all-files
+```
 
 ## Project Organization
 ------------
