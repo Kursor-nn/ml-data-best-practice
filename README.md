@@ -2,8 +2,23 @@ just_project
 ==============================
 
 just project
+## Intro
 
-Project Organization
+### Установка uv (если еще нет)
+```bash 
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### перезапускаем терминал
+Для загрузки новых ENV переменных
+
+### Устанавливаем cookiecutter через uv как инструмент
+```bash 
+uv tool install cookiecutter
+```
+
+
+## Project Organization
 ------------
 
     ├── LICENSE
