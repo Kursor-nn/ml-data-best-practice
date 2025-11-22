@@ -12,49 +12,28 @@ uv sync
 ## Настроить DVC для локального использования
 
 ### Допущения
-В проекте настроен локальный DVC Remote (/tmp/dvc-storage) для демонстрации.
+В проекте настроен локальный DVC Remote (./tmp/dvc-storage) для демонстрации.
 
 #### Инициализация DVC:
 
 ```bash
 uv run dvc init
-```
-
-#### Создаем папку где-то вне проекта (имитация облака)
-```bash
-mkdir -p /tmp/dvc-storage
-```
-
-#### Добавляем её как remote 'local_storage'
-```bash
-uv run dvc remote add -d local_storage /tmp/dvc-storage
-```
-
-#### Загрузка данных
-```bash
+# Создание локального хранилища
+mkdir -p tmp/dvc-storage
+uv run dvc remote add -d local_storage ./tmp/dvc-storage -f
 curl -o data/raw/wine-quality.csv https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
-```
-#### Трекинг данных
-
-```bash
 uv run dvc add data/raw/wine-quality.csv
-```
-#### Пуш данных
-```bash
 uv run dvc push
 ```
-
 
 ### Подготовка для воспроизведения
 Для последующего воспроизведения, необходимо сделать пару ручных действий:
 ```bash
-mkdir -p data/raw
 unzip dvc_localstorage.zip
 uv run dvc remote add -d local_storage ./tmp/dvc-storage -f
-
-#curl -o data/raw/wine-quality.csv https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
+uv run dvc pull
 uv run dvc status
-# Ожидаемый результат: "Data and pipelines are up to date." или отсутствие изменений для data/raw/wine-quality.csv
+# Ожидаемый результат: "Data and pipelines are up to date."
 ```
 
 
@@ -72,7 +51,7 @@ docker run --rm \
 
 А для просмотра результатов:
 ```
-uv run mlflow ui # 
+uv run mlflow ui --host 0.0.0.0 --port 5001
 ```
-тогда по адресу: `http://127.0.0.1:5000` будет доступен ML Flow UI
+тогда по адресу: `http://127.0.0.1:5001` будет доступен ML Flow UI
 
