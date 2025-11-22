@@ -49,7 +49,10 @@ uv run dvc push
 Для последующего воспроизведения, необходимо сделать пару ручных действий:
 ```bash
 mkdir -p data/raw
-curl -o data/raw/wine-quality.csv https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
+unzip dvc_localstorage.zip
+uv run dvc remote add -d local_storage ./tmp/dvc-storage -f
+
+#curl -o data/raw/wine-quality.csv https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
 uv run dvc status
 # Ожидаемый результат: "Data and pipelines are up to date." или отсутствие изменений для data/raw/wine-quality.csv
 ```
