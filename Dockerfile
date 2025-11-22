@@ -13,7 +13,8 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 # Устанавливаем зависимости
-RUN uv sync --frozen --system
+RUN uv sync --frozen
+ENV PATH="/app/.venv/bin:$PATH"
 
 # Копируем проект (включая .dvc папку, чтобы DVC работал)
 COPY . .
