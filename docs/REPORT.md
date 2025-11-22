@@ -13,8 +13,32 @@
 ## 3. Качество кода
 Настроены инструменты в `pyproject.toml` и `pre-commit`:
 - **Ruff**: Используется как линтер (замена Flake8, isort) и форматтер (замена Black).
+```yaml
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.6
+    hooks:
+      - id: ruff
+        args: [ --fix ]
+      - id: ruff-format
+```
 - **MyPy**: Статическая типизация.
+```yaml
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.18.2
+    hooks:
+      - id: mypy
+        exclude: ^docs/
+        additional_dependencies: [click]
+```
 - **Bandit**: Проверка безопасности.
+```yaml
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.9.1  # Обновим версию до свежей
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]", "pbr"]
+```
 
 Скриншот работы pre-commit:
 ![Pre-commit screenshot](./pre-commit.png)
