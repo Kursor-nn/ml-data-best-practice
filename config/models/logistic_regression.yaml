@@ -1,0 +1,5 @@
+model:
+  name: "LogisticRegression"
+  params:
+    C: 1.0
+    solver: "lbfgs"
