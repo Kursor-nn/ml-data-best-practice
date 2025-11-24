@@ -1,0 +1,9 @@
+data:
+  raw_path: "/opt/airflow/data/raw.csv"
+  processed_path: "/opt/airflow/data/processed.csv"
+  test_size: 0.2
+  random_state: 42
+
+paths:
+  model_save_dir: "/opt/airflow/models"
+  metrics_dir: "/opt/airflow/metrics"
